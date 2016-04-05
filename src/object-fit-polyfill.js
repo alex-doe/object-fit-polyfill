@@ -94,9 +94,9 @@
                 oDiv.style.display = "block";  
             }
             
-            for (var att, i = 0, atts = oImages[nKey].attributes, n = atts.length; i < n; i++){
+            for (var i = 0, atts = oImages[nKey].attributes, n = atts.length; i < n; i++){
                 if(atts[i].nodeName.indexOf("data-") > -1) {
-                    oDiv.setAttribute(att.nodeName,att.nodeValue);
+                    oDiv.setAttribute(atts[i].nodeName,atts[i].nodeValue);
                 }
             }
             
