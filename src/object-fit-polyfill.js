@@ -88,7 +88,18 @@
 
 			copyComputedStyle( oImages[nKey], oDiv );
 
-			oDiv.style.display = "block";
+            if(oImages[nKey].style.display) {
+                oDiv.style.display = oImages[nKey].style.display;   
+            } else {
+                oDiv.style.display = "block";  
+            }
+            
+            for (var att, i = 0, atts = oImages[nKey].attributes, n = atts.length; i < n; i++){
+                if(atts[i].nodeName.indexOf("data-") > -1) {
+                    oDiv.setAttribute(att.nodeName,att.nodeValue);
+                }
+            }
+            
 			oDiv.style.backgroundImage = "url("+  sSource + ")";
 			oDiv.style.backgroundPosition = "center center";
 			oDiv.style.className = oImages[nKey].className;
